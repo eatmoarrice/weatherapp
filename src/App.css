@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+body {
+	color: white;
+	height: 100%;
+	background-color: black;
+	text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weathercard {
+	border-radius: 30px;
+	background-color: rgb(75, 75, 75);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hcm {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://lesrivesexperience.com/wp-content/uploads/2018/11/sunset-on-saigon-river.jpg");
+	background-size: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-text {
+	/* background-color: rgba(97, 15, 31, 0.514); */
 }
 
-.App-link {
-  color: #61dafb;
+.weathercard {
+	max-width: 600px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fullscreen {
+	min-height: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 40px;
+	letter-spacing: 1.8px;
+	word-spacing: 1px;
+	background: -webkit-linear-gradient(#eee, #333);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #ffddb6;
+	font-weight: 700;
+	text-decoration: none;
+	font-style: italic;
+	font-variant: small-caps;
+	text-transform: none;
+}
+
+.desc-text {
+	font-size: 20px;
 }
