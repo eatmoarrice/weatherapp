@@ -38,7 +38,7 @@ export default class App extends Component {
 	}
 	getCurrentWeather = async (lon, lat) => {
 		let apiKey = process.env.REACT_APP_APIKEY;
-		const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+		const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 		console.log(url);
 		let data = await fetch(url);
 		let result = await data.json();
