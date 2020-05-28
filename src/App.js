@@ -74,8 +74,10 @@ export default class App extends Component {
 	render() {
 		if (this.state.weatherResult == null) {
 			return (
-				<div className="sweet-loading my-auto">
-					<ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} />
+				<div class="preload d-flex justify-content-center align-items-center">
+					<div className="sweet-loading">
+						<ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} />
+					</div>
 				</div>
 			);
 		}
@@ -102,7 +104,9 @@ export default class App extends Component {
 							<div className="row justify-content-center text-center">
 								{/* <h1 className="col-12 display-4 my-2 py-3 text-success">HIDE IN YOUR HOUSE!</h1> */}
 								<h2 className="col-12 card-text">{this.state.weatherResult.name}</h2>
-								<h3 className="col-12 card-text">Temperature: {this.state.weatherResult.main.temp}°C</h3>
+								<h3 className="col-12 card-text green">
+									Temperature: {this.state.weatherResult.main.temp}°C | {(this.state.weatherResult.main.temp * 9) / 5 + 32}°F
+								</h3>
 								<h3 className="col-12 desc-text">
 									<img src={`https://openweathermap.org/img/wn/${this.state.weatherResult.weather[0].icon}@2x.png`} />
 									{this.state.weatherResult.weather[0].description.toUpperCase()}

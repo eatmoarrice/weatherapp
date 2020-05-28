@@ -44,7 +44,7 @@ body {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	padding: 5px;
-	color: #ffddb6;
+	color: #ffffff;
 	font-weight: 700;
 	text-decoration: none;
 	font-style: italic;
@@ -69,4 +69,27 @@ body {
 	background-color: rgba(0, 175, 161, 0.4);
 	backdrop-filter: blur(5px) contrast(0.9);
 	color: white;
+}
+
+.preload {
+	height: 100vh;
+	width: 100vw;
+}
+
+.green {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 30px;
+	letter-spacing: 0.4px;
+	word-spacing: 1px;
+	background: -webkit-linear-gradient(rgb(34, 253, 151), rgb(55, 36, 161));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding: 5px;
+	color: #ffffff;
+	font-weight: 700;
+	text-decoration: none;
+	font-style: italic;
+	font-variant: small-caps;
+	text-transform: none;
+	text-shadow: 1px 1px rgba(255, 255, 255, 0.342);
 }
