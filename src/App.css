@@ -81,7 +81,7 @@ body {
 	font-size: 30px;
 	letter-spacing: 0.4px;
 	word-spacing: 1px;
-	background: -webkit-linear-gradient(rgb(34, 253, 151), rgb(55, 36, 161));
+	background: -webkit-linear-gradient(rgb(120, 209, 168), rgb(84, 75, 131));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	padding: 5px;
@@ -91,5 +91,5 @@ body {
 	font-style: italic;
 	font-variant: small-caps;
 	text-transform: none;
-	text-shadow: 1px 1px rgba(255, 255, 255, 0.342);
+	text-shadow: -2px -2px rgb(255, 255, 255);
 }

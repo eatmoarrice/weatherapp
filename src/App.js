@@ -105,7 +105,7 @@ export default class App extends Component {
 								{/* <h1 className="col-12 display-4 my-2 py-3 text-success">HIDE IN YOUR HOUSE!</h1> */}
 								<h2 className="col-12 card-text">{this.state.weatherResult.name}</h2>
 								<h3 className="col-12 card-text green">
-									Temperature: {this.state.weatherResult.main.temp}°C | {(this.state.weatherResult.main.temp * 9) / 5 + 32}°F
+									Temperature: {this.state.weatherResult.main.temp}°C | {Math.round(((this.state.weatherResult.main.temp * 9) / 5 + 32) * 100) / 100}°F
 								</h3>
 								<h3 className="col-12 desc-text">
 									<img src={`https://openweathermap.org/img/wn/${this.state.weatherResult.weather[0].icon}@2x.png`} />
