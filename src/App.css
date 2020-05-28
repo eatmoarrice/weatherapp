@@ -5,22 +5,26 @@ body {
 	text-align: center;
 }
 
-.weathercard {
+/* .weathercard {
 	border-radius: 30px;
-	background-color: rgb(75, 75, 75);
-}
+	background-color: rgba(172, 172, 172, 0.589);
+} */
 
-.hcm {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://lesrivesexperience.com/wp-content/uploads/2018/11/sunset-on-saigon-river.jpg");
-	background-size: cover;
-}
+/* .hcm {
+	/* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://lesrivesexperience.com/wp-content/uploads/2018/11/sunset-on-saigon-river.jpg"); */
+/* background-size: cover; */
+/* }  */
 
-.card-text {
-	/* background-color: rgba(97, 15, 31, 0.514); */
-}
+/* .card-text { */
+/* background-color: rgba(97, 15, 31, 0.514); */
+/* } */
 
 .weathercard {
+	text-shadow: 1px 1px 2px #000;
+	border-radius: 30px;
 	max-width: 600px;
+	background-color: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(5px) contrast(0.9);
 }
 
 .fullscreen {
@@ -28,6 +32,7 @@ body {
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
+	background-size: cover;
 }
 
 .title {
@@ -38,14 +43,30 @@ body {
 	background: -webkit-linear-gradient(#eee, #333);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	padding: 5px;
 	color: #ffddb6;
 	font-weight: 700;
 	text-decoration: none;
 	font-style: italic;
 	font-variant: small-caps;
 	text-transform: none;
+	text-shadow: 1px 1px rgba(255, 255, 255, 0.342);
+}
+
+.title-wrapper {
+	display: inline-block;
+	padding: 5px;
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.596);
+	/* background-color: #ffffff85; */
 }
 
 .desc-text {
 	font-size: 20px;
+}
+
+.btn-outline-info {
+	background-color: rgba(0, 175, 161, 0.4);
+	backdrop-filter: blur(5px) contrast(0.9);
+	color: white;
 }

@@ -15,19 +15,21 @@ const override = css`
 `;
 
 const imgURL = {
-	HCMC: {
+	"Ho Chi Minh City": {
 		url: "https://lesrivesexperience.com/wp-content/uploads/2018/11/sunset-on-saigon-river.jpg",
 	},
 	Venice: {
-		url: "https://cdn.yeudulich.com/media/cms/9f/7b/7bc9-aa4e-45d3-8f17-31f4d8f283c2.jpg",
+		url: "https://www.fodors.com/wp-content/uploads/2019/11/HERO_Venice__FloatingCityBuilt_iStock-986940360.jpg",
 	},
 	Munich: {
-		url: "https://cdn.yeudulich.com/media/cms/9f/7b/7bc9-aa4e-45d3-8f17-31f4d8f283c2.jpg",
+		url: "https://www.citybaseapartments.com/blog/wp-content/uploads/2019/11/Munich-centre.jpg",
 	},
-	Budapest: {
-		url: "https://cdn.yeudulich.com/media/cms/9f/7b/7bc9-aa4e-45d3-8f17-31f4d8f283c2.jpg",
+	London: {
+		url: "https://cdn.contexttravel.com/image/upload/c_fill,q_60,w_2600/v1555943130/production/city/hero_image_11_1555943130.jpg",
 	},
 };
+
+let cityName = "Ho Chi Minh City";
 
 export default class App extends Component {
 	constructor(props) {
@@ -36,39 +38,56 @@ export default class App extends Component {
 			weatherResult: null,
 		};
 	}
-	getCurrentWeather = async (lon, lat) => {
-		let apiKey = process.env.REACT_APP_APIKEY;
-		const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-		console.log(url);
-		let data = await fetch(url);
-		let result = await data.json();
-		this.setState({ weatherResult: result });
+	getCurrentWeather = async (cityName) => {
+		try {
+			let apiKey = process.env.REACT_APP_APIKEY;
+			const url2 = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+			// const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+			let data = await fetch(url2);
+			if (data.status !== 200) {
+				throw new Error("data is wrong");
+			}
+
+			let result = await data.json();
+			console.log(result);
+			this.setState({ weatherResult: result, image: imgURL[cityName].url });
+		} catch (err) {
+			alert(err.message);
+		}
 	};
 
-	getLocation = () => {
-		navigator.geolocation.getCurrentPosition((post) => {
-			this.getCurrentWeather(post.coords.longitude, post.coords.latitude);
-		});
+	// getLocation = () => {
+	// 	navigator.geolocation.getCurrentPosition((post) => {
+	// 		this.getCurrentWeather(post.coords.longitude, post.coords.latitude);
+	// 	});
+	// };
+
+	changeCity = (cityName) => {
+		this.getCurrentWeather(cityName);
+		console.log(this.image);
 	};
 
 	componentDidMount() {
-		this.getLocation();
+		// this.getLocation();
+		this.getCurrentWeather(cityName);
 	}
 	render() {
 		if (this.state.weatherResult == null) {
 			return (
-				<div className="sweet-loading">
+				<div className="sweet-loading my-auto">
 					<ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} />
 				</div>
 			);
 		}
 		return (
-			<div className="fullscreen">
+			<div className="fullscreen" style={{ backgroundImage: `url(${this.state.image})` }}>
 				<div className="container">
-					<h2 className="title">
-						<FontAwesomeIcon icon={faCloudSunRain} />
-						WEATHER FORECAST
-					</h2>
+					<div class="title-wrapper">
+						<h2 className="title">
+							<FontAwesomeIcon icon={faCloudSunRain} />
+							WEATHER FORECAST
+						</h2>
+					</div>
 					{/* <Card style={{ width: "18rem" }}>
 						<Card.Img variant="top" src="holder.js/100px180" />
 						<Card.Body>
@@ -91,12 +110,18 @@ export default class App extends Component {
 							</div>
 						</div>
 					</div>
-					<Button variant="outline-info" active>
+					<Button variant="outline-info" onClick={() => this.changeCity("Ho Chi Minh City")}>
 						HCMC
 					</Button>
-					<Button variant="outline-info">Venice</Button>
-					<Button variant="outline-info">Munich</Button>
-					<Button variant="outline-info">Budapest</Button>
+					<Button variant="outline-info" onClick={() => this.changeCity("Venice")}>
+						Venice
+					</Button>
+					<Button variant="outline-info" onClick={() => this.changeCity("Munich")}>
+						Munich
+					</Button>
+					<Button variant="outline-info" onClick={() => this.changeCity("London")}>
+						London
+					</Button>
 				</div>
 			</div>
 		);
